@@ -22,6 +22,7 @@
         <div class="nav-content">
             <div class="nav-logo">
                 <img src="logodaempresa.jpg" alt="Logo Alaska - Distribuidora de Gelo" loading="lazy">
+                <span class="logo-text">Sua fornecedora de gelo em Itaúna</span>
             </div>
             <ul class="nav-links">
                 <li><a class="nav-link active" href="#">Home</a></li>
@@ -46,6 +47,7 @@
                     </a>
                 </div>
             </header>
+            <h2 class="produtos-title">Conheça nossos produtos</h2>
             <section id="produtos" class="pacotes-row">
                 <a href="https://wa.me/5537999077865?text=Olá,%20gostaria%20de%20adiquirir%20o%20pacote%20de%203%20Kg." target="_blank" class="pacote-link">
                     <div class="pacote">
@@ -112,6 +114,9 @@
                             </div>
                         </li>
                     </ul>
+                    <div class="benefits-illustration-wrap">
+                        <img src="bebida.png" alt="Bebida gelada Alaska" class="benefits-illustration">
+                    </div>
                 </div>
             </section>
         </aside>
@@ -127,6 +132,32 @@
                 Instagram
             </a>
         </p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.9;">
+            CNPJ: 64.201.641/0001-97
+        </p>
     </footer>
+
+    <script>
+        // Gerenciar classe ativa no menu de navegação
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                // Remove a classe active de todos os links
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                // Adiciona a classe active apenas ao link clicado
+                this.classList.add('active');
+            });
+        });
+
+        // Atualizar link ativo ao carregar a página baseado na URL
+        window.addEventListener('load', function() {
+            const currentHash = window.location.hash;
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentHash || (currentHash === '' && link.getAttribute('href') === '#')) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
